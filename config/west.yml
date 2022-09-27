@@ -2,11 +2,11 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: stephen
-      url-base: https://github.com/stephen
+    - name: infused-kim
+      url-base: github.com/infused-kim
   projects:
     - name: zmk
-      remote: stephen
+      remote: infused-kim
       revision: split-encoder
       import: app/west.yml
   self:
