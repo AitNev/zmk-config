@@ -2,12 +2,12 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: infused-kim
-      url-base: github.com/infused-kim
+    - name: cdc-mkb
+      url-base: https://github.com/cdc-mkb
   projects:
     - name: zmk
-      remote: infused-kim
-      revision: testing/split-encoder
+      remote: cdc-mkb
+      revision: mouse-pim447
       import: app/west.yml
   self:
     path: config
