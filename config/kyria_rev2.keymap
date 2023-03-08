@@ -62,7 +62,7 @@
 	&kp ESC     &kp Q       &kp W &kp F &kp P &kp B                                           &kp J &kp L  &kp U     &kp Y   &kp SQT     &kp BSPC
 	&kp TAB     &hm LSHFT A &kp R &kp S &kp T &kp G                                           &kp M &kp N  &kp E     &kp I   &hm RSHFT O &kp RET
 	&kp LSHFT   &kp X       &kp C &kp D &kp V &kp Z &none   &none            &kp RCTRL &none  &kp K &kp H  &kp COMMA &kp DOT &kp FSLH    &mt RSHFT SEMI
-	              &none     &mt LALT RET  &mo MED &mo NAV &mo MOU            &kp BKSP &mo NUM &kp SPC &kp LCTRL &none
+	              &none     &mt LALT RET  &mo MED &mo NAV &mo MOU            &mo SYM &mo NUM &kp SPC &kp LCTRL &none
 			>;
 
 			sensor-bindings = <&inc_dec_cp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -110,6 +110,24 @@
 // | ---   |Super| Alt | Ctrl | Shift| ---  |                                       | KP0  |  KP4  |  KP5 |  KP6  | ---  | ---  |
 // | ---   | --- | --- | ---  | ---  | ---  |  ---   |  ---    |  |   ---   |  ---  | ---  |  KP1  |  KP2 |  KP3  | ---  | ---  |
 //                     | ---  | ---  | ---  |  ---   |  ---    |  |  ENTER  | BACSP | DEL  | ---   | ---   |
+// encoder : volume up/down //// brightness up/down
+
+			bindings = <
+	&none &none    &none    &none     &none     &none                                              &none     &kp KP_N7 &kp KP_N8 &kp KP_N9 &none &none
+	&none &kp LWIN &kp LALT &kp LCTRL &kp LSHFT &none                                              &kp KP_N0 &kp KP_N4 &kp KP_N5 &kp KP_N6 &none &none
+	&none &none    &none    &none     &none     &none &none &none &none         &none     &none    &none     &kp KP_N1 &kp KP_N2 &kp KP_N3 &none &none
+	                                  &none     &none &none &none &none         &kp ENTER &kp BSPC &kp DEL &none &none
+			>;
+
+			sensor-bindings = <&inc_dec_cp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
+		};
+		
+		symbols_layer {
+// ---------------------------------------------------------------------------------------------------------------------------------
+// | ---   | {   | &   | *    | (    | }    |                                       | ---  |  ---  |  --- |  ---  | ---  | ---  |
+// | ---   | :   | $   | %    | ^    | +    |                                       | ---  |  Shift|  Ctrl|  Alt  | Super| ---  |
+// | ---   | ~   | !   | @    | #    | |    |  ---   |  ---    |  |   ---   |  ---  | ---  |  ---  |  --- |  ---  | ---  | ---  |
+//                     | ---  | ---  | (    |  )     |  _      |  |   ---   |  ---  | ---  |  ---  |  --- |
 // encoder : volume up/down //// brightness up/down
 
 			bindings = <
