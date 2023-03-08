@@ -6,25 +6,63 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DEFAULT 0
+#define LOWER   1
+#define RAISE   2
 
 / {
 	keymap {
 		compatible = "zmk,keymap";
 
 		default_layer {
-// ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
-// |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | L SHIFT | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
-//                     | GUI  | DEL  | BSPC  |  RET  |   ESC   |  |   RET   |  TAB  | SPACE  | ESC  | R-ALT |
+// ----------------------------------------------------------------------------------------------------------------------------------
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y    |  U    |  I    |  O   |   P   |   \  |
+// |  ESC  |  A  |  S  |  D   |  F   |  G   |                                          |  H    |  J    |  K    |  L   |   ;   |   '  |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   | LGUI    |         |  |         |    RGUI |  N    |  M    |  ,    |  .   |   /   | SHIFT |
+//                     | PLAY | LOWER | BPSC | LCTRL  | LGUI    |  |    RGUI |   ENTER | SPACE | RAISE | BTNXT |
+
 			bindings = <
-	&kp ESC   &kp Q &kp W &kp F &kp P &kp B                                                &kp J &kp L  &kp U     &kp Y   &kp SQT &kp BSLH
-	&kp TAB   &kp A &kp R &kp S &kp T &kp G                                                &kp M &kp N  &kp E     &kp I   &kp O    &kp SEMI
-	&kp LSHFT &kp X &kp C &kp D &kp V &kp Z &kp LSHFT &kp LSHFT        &kp LSHFT &kp LSHFT &kp K &kp H  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
-	                 &kp LGUI &kp DEL &kp BSPC &kp RET &kp ESC        &kp RET  &kp TAB  &kp SPACE &kp ESC &kp RALT
+	&kp TAB   &kp Q &kp W &kp F    &kp P     &kp B                                            &kp J        &kp L      &kp U      &kp Y      &kp SEMI &kp BSLH
+	&kp ESC   &kp A &kp R &kp S    &kp T     &kp G                                            &kp M        &kp N      &kp E      &kp I      &kp O &kp SQT
+	&kp LSHFT &kp X &kp C &kp D    &kp V     &kp Z    &kp LGUI  &none     &none      &kp RGUI &kp K        &kp H      &kp COMMA  &kp DOT    &kp FSLH &kp RSHFT
+	                      &kp C_PP &kp LALT &kp BSPC &kp LCTRL &mo LOWER  &mo RAISE  &kp RET  &kp SPACE    &kp TILDE  &kp RALT
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+		};
+
+		lower_layer {
+// ----------------------------------------------------------------------------------------------------------------------------------
+// | `     |  !  |  @  |  #   |  $   |  %   |                                          |  ^    |  &    |  *    |  (   |   )   |  ~   |
+// |       |     |     |      |      |      |                                          |  -    |  +    |  =    |  {   |   }   |  |   |
+// |       |     |     |      |      |      | LGUI    |         |  |         | RGUI    |  _    |       |       |  [   |   ]   |      |
+//                     | PLAY | LALT | BPSC | LCTRL   |  LOWER  |  |  RAISE  | ENTER   | SPACE | BTCLR | BTNXT |
+			bindings = <
+	&kp GRAVE &kp EXCL &kp AT &kp POUND   &kp DLLR &kp PRCNT                             &kp CARET &kp AMPS   &kp STAR  &kp LPAR &kp RPAR &kp TILDE
+	&none     &none    &none  &none       &none    &none                                 &kp MINUS &kp PLUS   &kp EQUAL &kp LBRC &kp RBRC &kp PIPE
+	&trans     &none    &none  &none      &none    &none  &trans &none     &none  &trans &kp UNDER &none      &none     &kp LBKT &kp RBKT &trans
+			                      &trans      &trans   &trans &trans &trans    &trans &trans &trans    &bt BT_CLR &bt BT_NXT
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+		};
+
+		upper_layer {
+// ----------------------------------------------------------------------------------------------------------------------------------
+// |       | 1   |  2  |  3   |  4   |  5   |                                          | 6     |  7    |  8    |  9    |  0   |      |
+// |       |     |     |      |      |      |                                          |       | LEFT  | DOWN  | UP   | RIGHT |      |
+// |       |     |     |      |      |      | LGUI    |         |  |         | RGUI    |       | CPREV | CNEXT |      |       |      |
+//                     | PLAY | LALT | BPSC | LCTRL   |  LOWER  |  |  RAISE  | ENTER   | SPACE | BTCLR | BTNXT |
+			bindings = <
+	&none     &kp N1   &kp N2 &kp N3  &kp N4 &kp N5                                &kp N6    &kp N7    &kp N8     &kp N9      &kp N0    &none
+	&none     &none    &none  &none   &none  &none                                 &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT &none &none
+	&trans    &none    &none  &none   &none  &none  &trans &none     &none &trans  &none     &kp C_PREV &kp C_NEXT  &none     &none &trans
+			                      &trans  &trans &trans &trans &trans    &trans &trans &trans    &trans     &trans
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP>;
 		};
 	};
 };
