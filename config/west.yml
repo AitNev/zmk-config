@@ -2,12 +2,10 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: vesim987
-      url-base: https://github.com/vesim987
   projects:
     - name: zmk
-      remote: vesim987
-      revision: mouse-ftc
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
   self:
     path: config
