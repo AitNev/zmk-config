@@ -29,19 +29,19 @@
 	    compatible = "zmk,behavior-hold-tap";
 	    label = "homerow mods";
 	    #binding-cells = <2>;
-	    tapping_term_ms = <220>;
+	    tapping_term_ms = <500>;
 	    flavor = "balanced";
 	    bindings = <&kp>, <&kp>;
 	  };
 
-	  // mx: layer_tap_osl {
-		// 	compatible = "zmk,behavior-hold-tap";
-		// 	label = "LAYER_TAP_OSL";
-		// 	#binding-cells = <2>;
-		// 	flavor = "hold-preferred";
-		// 	tapping_term_ms = <200>;
-		// 	bindings = <&mo>, <&sl>;
-		// };
+	  sm: shift_mods {
+	    compatible = "zmk,behavior-hold-tap";
+	    label = "shift mods";
+	    #binding-cells = <2>;
+	    tapping_term_ms = <220>;
+	    flavor = "balanced";
+	    bindings = <&kp>, <&kp>;
+	  };
 	};
 
   macros {
@@ -59,10 +59,10 @@
 //                     | ENC  |Opt/En| Cmd  |  Nav    |   del   |  |   bksp  |  num    | spc  | Ctl   | ENC2  |
 // encoder : volume up/down //// ctrl left/ ctrl right
 			bindings = <
-	&kp ESC     &kp Q       &kp W &kp F &kp P &kp B                                                                 &kp J       &kp L &kp U     &kp Y   &kp SQT     &kp BSPC
-	&kp TAB     &hm LSHFT A &kp R &kp S &kp T &kp G                                                                 &kp M       &kp N &kp E     &kp I   &hm RSHFT O &kp RET
-	&kp LSHFT   &kp X       &kp C &kp D &kp V &kp Z       &none         &none            &none         &none        &kp K       &kp H &kp COMMA &kp DOT &kp FSLH    &mt RSHFT SEMI
-	                              &none &none &lt MED ESC &lt NAV SPACE &lt MOU TAB      &lt SYM ENTER &lt NUM BSPC &lt FUN DEL &none &none
+	&kp ESC     &kp Q      &kp W      &kp F       &kp P        &kp B                                                          &kp J       &kp L        &kp U       &kp Y      &kp SQT    &kp BSPC
+	&kp TAB     &hm LWIN A &hm LALT R &hm LCTRL S &sm LSHIFT T &kp G                                                          &kp M       &sm LSHIFT N &hm LCTRL E &hm LALT I &hm LWIN O &kp RET
+	&kp LSHFT   &kp X      &hm RALT C &kp D       &kp V &kp Z       &none         &none            &none         &none        &kp K       &kp H        &kp COMMA   &kp DOT    &kp FSLH   &mt RSHFT SEMI
+	                                  &none       &none &lt MED ESC &lt NAV SPACE &lt MOU TAB      &lt SYM ENTER &lt NUM BSPC &lt FUN DEL &none        &none
 			>;
 
 			sensor-bindings = <&inc_dec_cp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
