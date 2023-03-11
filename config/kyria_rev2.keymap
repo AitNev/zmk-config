@@ -89,14 +89,14 @@
 		navigation_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
 // | ---   | --- | --- | ---  | ---  | ---  |                                       | REDO |  PASTE|  COPY |  CUT | UNDO | ---  |
-// | ---   |Super| Alt | Ctrl | Shift| ---  |                                       | CAPS |  LEFT |  DOWN |  UP  | RIGHT| ---  |
+// | ---   |Super| Alt | Ctrl | Shift| ---  |                                       | LEFT |  DOWN |  UP   |  DOWN| CAPS | ---  |
 // | ---   | --- | Alt | ---  | ---  | ---  |  ---   |  ---    |  |   ---   |  ---  |INSERT|  HOME |  PGDN |  PGUP| END  | ---  |
 //                     | ---  | ---  | ---  |  ---   |  ---    |  |  ENTER  | BACSP | DEL  | ---   | ---   |
 // encoder : volume up/down //// brightness up/down
 
 			bindings = <
 	&none &none    &none    &none     &none     &none                                              &kp LC(Y) &kp LC(V) &kp LC(C) &kp LC(X) &kp LC(Z) &none
-	&none &kp LWIN &kp LALT &kp LCTRL &kp LSHFT &none                                              &kp CAPS  &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &none
+	&none &kp LWIN &kp LALT &kp LCTRL &kp LSHFT &none                                              &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &kp CAPS &none
 	&none &none    &kp RALT &none     &none     &none &none &none               &none     &none    &kp INS   &kp HOME  &kp PG_DN &kp PG_UP &kp END   &none
 	                        &none     &none     &none &none &none               &kp ENTER &kp BSPC &kp DEL &none &none
 			>;
