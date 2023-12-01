@@ -11,12 +11,8 @@
 #define NUM  5
 #define FUN  6
 
-&left_encoder { 
-	resolution = <2>; 
-};
-&right_encoder {
-	resolution = <2>; 
-};
+&left_encoder { resolution = <2>; };
+&right_encoder { resolution = <2>; };
 
 / {
 
@@ -66,7 +62,7 @@
 	&kp ESC     &kp Q      &kp W      &kp F       &kp P        &kp B                                                          &kp J       &kp L        &kp U       &kp Y      &kp SQT    &kp BSPC
 	&kp UNDER   &hm LWIN A &hm LALT R &hm LCTRL S &sm LSHIFT T &kp G                                                          &kp M       &sm LSHIFT N &hm LCTRL E &hm LALT I &hm LWIN O &kp SEMI
 	&kp LSHFT   &kp X      &hm RALT C &kp D       &kp V &kp Z       &none         &none            &none         &none        &kp K       &kp H        &kp COMMA   &kp DOT    &kp FSLH   &mt RSHFT SEMI
-	                                  &kb MED   &none &lt LCTRL ESC &lt NAV SPACE &lt MOU TAB      &lt SYM ENTER &lt NUM BSPC &lt FUN DEL &lt NAV LBKT &none
+	                                  &kb MED   &none &lt MED ESC &lt NAV SPACE &lt MOU TAB      &lt SYM ENTER &lt NUM BSPC &lt FUN DEL &lt NAV LBKT &none
 			>;
 
 			sensor-bindings = <&inc_dec_cp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
