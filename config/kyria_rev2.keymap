@@ -12,12 +12,10 @@
 #define FUN  6
 
 &left_encoder { 
-	resolution = <2>;
-	status = "okay";
+	resolution = <2>; 
 };
 &right_encoder {
-	resolution = <2>;
-	status = "okay";
+	resolution = <2>; 
 };
 
 / {
