@@ -1,0 +1,2 @@
+// Right half: the shared keymap, unchanged.
+#include "kyria_rev2_common.dtsi"

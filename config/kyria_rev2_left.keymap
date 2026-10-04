@@ -1,8 +1,14 @@
-// Left half only: the nice!nano's P0.02 (pro_micro 19, ROW0) and P1.15 (pro_micro 18, ROW1)
+// Left half: the shared keymap plus a hardware workaround.
+//
+// The left nice!nano's P0.02 (pro_micro 19, ROW0) and P1.15 (pro_micro 18, ROW1)
 // stopped reading. Both rows are rewired with jumper wires on the board:
 //   ROW0 (PCB "F6/ROW0", chip 002) -> PCB "D2"     pad, chip 008 = pro_micro 0
 //   ROW1 (PCB "F7/ROW1", chip 115) -> PCB "D1/SDA" pad, chip 017 = pro_micro 2
 // RGB data (D3, pro_micro 1) is left untouched.
+//
+// This lives in the keymap rather than a kyria_rev2_left.overlay because ZMK applies
+// user overlays before the shield's own files, but the keymap after them.
+#include "kyria_rev2_common.dtsi"
 
 &kscan0 {
     row-gpios
